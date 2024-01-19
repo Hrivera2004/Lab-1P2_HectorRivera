@@ -5,16 +5,20 @@
 package lab.pkg1p2_hectorrivera;
 
 import java.util.Date;
-
+import java.util.ArrayList;
 /**
  *
  * @author hrolriverav
  */
 public class Usario {
+    ArrayList<Usario> List = new ArrayList<Usario>();
     String Mail, con;
     Date fn;
     
+    public Usario(){
+    }
     public Usario(String Mail, String con, Date fn){
+
         this.Mail= Mail;
         this.con = con;
         this.fn = fn;
