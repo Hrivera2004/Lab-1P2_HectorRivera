@@ -52,21 +52,27 @@ public class Lab1P2_HectorRivera {
     public static String cont(){
         System.out.println("Ingrese una conntraseña: ");
         String cont = sc.nextLine();
-        System.out.println(validarC(cont));
+        boolean sizee= false;
+        while(sizee = false || validarC(cont)==false){
+            System.out.println("Ingrese una conntraseña valida: ");
+            cont = sc.nextLine();  
+        }
+        
         return cont;
     }
-    
     public static boolean validarC(String cont){
         String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(cont);
         return matcher.matches();
     }
-    
     public static String mail(){
         System.out.println("Ingrese una Mail: ");
         String mail = sc.nextLine();
-        System.out.println(validarM(mail));
+        while(validarM(mail)==false){
+            System.out.println("Ingrese una conntraseña valida: ");
+            mail = sc.nextLine();
+        }
         return mail;
     }
     public static boolean validarM(String mail){
