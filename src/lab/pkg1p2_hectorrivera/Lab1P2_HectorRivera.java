@@ -7,6 +7,8 @@ package lab.pkg1p2_hectorrivera;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -38,7 +40,7 @@ public class Lab1P2_HectorRivera {
                     break;
                 case 3:
                     System.out.println("\nListar con edad Excata");
-                    ListarEXCAT(List);
+                    ListaDominio(List);
                     break;
                 default:
                     System.out.println("Ingrese una opcion valida");
@@ -48,14 +50,30 @@ public class Lab1P2_HectorRivera {
         }
     }
     public static String cont(){
-        System.out.println("Ingrese su correo: ");
-        String mail = sc.nextLine();
-        return mail;
-    }
-    public static String mail(){
         System.out.println("Ingrese una conntraseña: ");
         String cont = sc.nextLine();
+        System.out.println(validarC(cont));
         return cont;
+    }
+    
+    public static boolean validarC(String cont){
+        String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(cont);
+        return matcher.matches();
+    }
+    
+    public static String mail(){
+        System.out.println("Ingrese una Mail: ");
+        String mail = sc.nextLine();
+        System.out.println(validarM(mail));
+        return mail;
+    }
+    public static boolean validarM(String mail){
+        String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(mail);
+        return matcher.matches();
     }
     public static Date Fecha(){
         System.out.println("Ingrese una fecha en Formato(yyyy/MM/dd): ");
@@ -72,11 +90,12 @@ public class Lab1P2_HectorRivera {
     }
     
     public static void Listar(ArrayList<Usario> List){
+
         for (int i = 0; i < List.size(); i++) {
             System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn());
         }
     }
-    public static void ListarEXCAT(ArrayList<Usario> List){
+    public static void ListaDominio(ArrayList<Usario> List){
         for (int i = 0; i < List.size(); i++) {
             System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + edad(List.get(i).getFn()));
         }
@@ -97,4 +116,5 @@ public class Lab1P2_HectorRivera {
         return edad;        
     }
 }
+
     
