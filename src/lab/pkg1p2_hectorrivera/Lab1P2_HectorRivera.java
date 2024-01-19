@@ -125,17 +125,11 @@ public class Lab1P2_HectorRivera {
             }else if(Tokens[1].equalsIgnoreCase("FastMail.com")){
                 FastMail+=i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn()+"\n";
             }
-            System.out.println("gmail: ");
             System.out.println(Gmail);
-            System.out.println("Outlook: ");
             System.out.println(Outlook);
-            System.out.println("Yahoo: ");
             System.out.println(Yahoo);
-            System.out.println("icloud: ");
             System.out.println(icloud);
-            System.out.println("ProtonMail: ");
             System.out.println(ProtonMail);
-            System.out.println("FastMail: ");
             System.out.println(FastMail);
         }
     }
