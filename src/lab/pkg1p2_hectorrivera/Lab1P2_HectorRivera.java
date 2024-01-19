@@ -27,15 +27,18 @@ public class Lab1P2_HectorRivera {
             switch(opc){
                 case 1:
                     sc.nextLine();
+                    System.out.println("\nRgeistrar");
                     Objeto = new Usario(mail(),cont(),Fecha());
                     List.add(Objeto);
-                    
                     System.out.println(List.get(0).getFn());
                     break;
                 case 2:
+                    System.out.println("\nListar");
+                    Listar(List);
                     break;
                 case 3:
-                    
+                    System.out.println("\nListar con edad Excata");
+                    ListarEXCAT(List);
                     break;
                 default:
                     System.out.println("Ingrese una opcion valida");
@@ -59,20 +62,39 @@ public class Lab1P2_HectorRivera {
         String Date = sc.nextLine();
         
         Date fecha = new Date(Date);
-        Date aux = new Date();
-        int comp = aux.getYear()-fecha.getYear();
-
-        while(comp < 13){
-            System.out.println("Ingrese una fecha en Formato(yyyy/MM/dd): ");
-            Date = sc.nextLine(); 
+        while(edad(fecha)<13){
+            System.out.println("tiene que ser mayor de 13 para ingresar ");
+            Date = sc.nextLine();
             fecha = new Date(Date);
-            aux = new Date();
-            comp = aux.getYear()-fecha.getYear();
         }
-        
- 
 
         return fecha;
+    }
+    
+    public static void Listar(ArrayList<Usario> List){
+        for (int i = 0; i < List.size(); i++) {
+            System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn());
+        }
+    }
+    public static void ListarEXCAT(ArrayList<Usario> List){
+        for (int i = 0; i < List.size(); i++) {
+            System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + edad(List.get(i).getFn()));
+        }
+    }
+    public static int edad(Date Fn){
+        Date aux = new Date();
+        int edad = aux.getYear()- Fn.getYear();
+        if (Fn.getMonth()>=aux.getMonth()) {
+            if (Fn.getDay()>=aux.getDay()) {
+                edad++;
+            }else{
+                edad--;
+            }
+        }else{
+            edad--;
+        }
+                
+        return edad;        
     }
 }
     
