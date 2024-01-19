@@ -4,6 +4,7 @@
  */
 package lab.pkg1p2_hectorrivera;
 
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,8 @@ public class Lab1P2_HectorRivera {
         while(opc!=4){
             switch(opc){
                 case 1:
-                    
+                    sc.nextLine();
+                    Fecha();
                     break;
                 case 2:
                     
@@ -34,6 +36,36 @@ public class Lab1P2_HectorRivera {
             System.out.println("---Menu---");
             System.out.println("1.Registrar Usario \n2. Listar Todo \n3.Listar Por Dominio\n4.Salir");
         }
+    }
+    public static String cont(){
+        System.out.println("Ingrese su correo: ");
+        String mail = sc.nextLine();
+        return mail;
+    }
+    public static String mail(){
+        System.out.println("Ingrese una conntraseña: ");
+        String cont = sc.nextLine();
+        return cont;
+    }
+    public static Date Fecha(){
+        System.out.println("Ingrese una fecha en Formato(yyyy/MM/dd): ");
+        String Date = sc.nextLine();
+        
+        Date fecha = new Date(Date);
+        Date aux = new Date();
+        int comp = aux.getYear()-fecha.getYear();
+
+        while(comp < 13){
+            System.out.println("Ingrese una fecha en Formato(yyyy/MM/dd): ");
+            Date = sc.nextLine(); 
+            fecha = new Date(Date);
+            aux = new Date();
+            comp = aux.getYear()-fecha.getYear();
+        }
+        
+ 
+
+        return fecha;
     }
 }
     
