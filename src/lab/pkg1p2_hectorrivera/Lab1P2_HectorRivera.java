@@ -47,16 +47,17 @@ public class Lab1P2_HectorRivera {
             }
             System.out.println("---Menu---");
             System.out.println("1.Registrar Usario \n2. Listar Todo \n3.Listar Por Dominio\n4.Salir");
+            opc = sc.nextInt();
         }
     }
     public static String cont(){
         System.out.println("Ingrese una conntraseña: ");
         String cont = sc.nextLine();
-        boolean sizee= false;
+        /*boolean sizee= false;
         while(sizee = false || validarC(cont)==false){
             System.out.println("Ingrese una conntraseña valida: ");
             cont = sc.nextLine();  
-        }
+        }*/
         
         return cont;
     }
@@ -70,7 +71,7 @@ public class Lab1P2_HectorRivera {
         System.out.println("Ingrese una Mail: ");
         String mail = sc.nextLine();
         while(validarM(mail)==false){
-            System.out.println("Ingrese una conntraseña valida: ");
+            System.out.println("Ingrese una mail valido: ");
             mail = sc.nextLine();
         }
         return mail;
@@ -102,8 +103,18 @@ public class Lab1P2_HectorRivera {
         }
     }
     public static void ListaDominio(ArrayList<Usario> List){
+        System.out.println("--------------------------");
+        String[] dasda= List.get(0).getMail().split("@"); 
+        System.out.println(dasda[0] + "  "+dasda[1]);
+                
+        String Gmail = " ";
+        String Outlook = " ";
+        String Yahoo = " ";
+        String icloud = " ";
+        String ProtonMail = " ";
+        String FastMail = " ";
         for (int i = 0; i < List.size(); i++) {
-            System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + edad(List.get(i).getFn()));
+            System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn());
         }
     }
     public static int edad(Date Fn){
