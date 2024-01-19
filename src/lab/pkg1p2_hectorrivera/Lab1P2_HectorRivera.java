@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author hrolriverav
+ * @author Hector Rolando Rivera Varela
  */
 public class Lab1P2_HectorRivera {
     static Scanner sc = new Scanner(System.in);
