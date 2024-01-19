@@ -53,16 +53,16 @@ public class Lab1P2_HectorRivera {
     public static String cont(){
         System.out.println("Ingrese una conntraseña: ");
         String cont = sc.nextLine();
-        /*boolean sizee= false;
+        boolean sizee= false;
         while(sizee = false || validarC(cont)==false){
             System.out.println("Ingrese una conntraseña valida: ");
             cont = sc.nextLine();  
-        }*/
+        }
         
         return cont;
     }
     public static boolean validarC(String cont){
-        String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        String regex = "^[a-zA-Z0-9._%&$+-?<>!]{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(cont);
         return matcher.matches();
@@ -97,16 +97,13 @@ public class Lab1P2_HectorRivera {
     }
     
     public static void Listar(ArrayList<Usario> List){
-
         for (int i = 0; i < List.size(); i++) {
-            System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn());
+            System.out.println(i+1+". Correo: "+List.get(i).getMail()+"| Contraseña: "+List.get(i).getCon()+"| Fecha: " + List.get(i).getFn());
         }
     }
     public static void ListaDominio(ArrayList<Usario> List){
         System.out.println("--------------------------");
-        String[] dasda= List.get(0).getMail().split("@"); 
-        System.out.println(dasda[0] + "  "+dasda[1]);
-                
+
         String Gmail = " ";
         String Outlook = " ";
         String Yahoo = " ";
@@ -114,7 +111,32 @@ public class Lab1P2_HectorRivera {
         String ProtonMail = " ";
         String FastMail = " ";
         for (int i = 0; i < List.size(); i++) {
-            System.out.println(i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn());
+            String[] Tokens= List.get(i).getMail().split("@"); 
+            if (Tokens[1].equalsIgnoreCase("gmail.com")) {
+                Gmail+=i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn()+"\n";
+            }else if(Tokens[1].equalsIgnoreCase("outlook.com")){
+                Outlook+=i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn()+"\n";
+            }else if(Tokens[1].equalsIgnoreCase("Yahoo.com")){
+                Yahoo+=i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn()+"\n";
+            }else if(Tokens[1].equalsIgnoreCase("icloud.com")){
+                icloud+=i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn()+"\n";
+            }else if(Tokens[1].equalsIgnoreCase("ProtonMail.com")){
+                ProtonMail+=i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn()+"\n";
+            }else if(Tokens[1].equalsIgnoreCase("FastMail.com")){
+                FastMail+=i+1+". Correo: "+List.get(i).getMail()+" Contraseña: "+List.get(i).getCon()+" Fecha: " + List.get(i).getFn()+"\n";
+            }
+            System.out.println("gmail: ");
+            System.out.println(Gmail);
+            System.out.println("Outlook: ");
+            System.out.println(Outlook);
+            System.out.println("Yahoo: ");
+            System.out.println(Yahoo);
+            System.out.println("icloud: ");
+            System.out.println(icloud);
+            System.out.println("ProtonMail: ");
+            System.out.println(ProtonMail);
+            System.out.println("FastMail: ");
+            System.out.println(FastMail);
         }
     }
     public static int edad(Date Fn){
